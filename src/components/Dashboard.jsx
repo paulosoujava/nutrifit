@@ -34,7 +34,7 @@ export default function Dashboard({
       
       {/* Cabeçalho Fixo do Dashboard */}
       <header className="glass-card" style={{
-        padding: '16px 20px',
+        padding: 'calc(16px + env(safe-area-inset-top, 0px)) 20px 16px 20px',
         borderBottom: '1px solid var(--border)',
         borderRadius: '0 0 20px 20px',
         display: 'flex',
@@ -67,7 +67,7 @@ export default function Dashboard({
       </header>
 
       {/* Área Principal de Rolagem */}
-      <div className="screen-scrollable">
+      <div className="dashboard-scrollable">
         {activeTab === 'home' && (
           <DashboardTab
             profile={profile}
@@ -127,13 +127,13 @@ export default function Dashboard({
         bottom: 0,
         left: 0,
         right: 0,
-        height: '76px',
+        height: 'calc(76px + env(safe-area-inset-bottom, 0px))',
         borderTop: '1px solid var(--border)',
         borderRadius: '24px 24px 0 0',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        padding: '0 10px',
+        padding: '0 10px env(safe-area-inset-bottom, 0px) 10px',
         zIndex: 10
       }}>
         {[
