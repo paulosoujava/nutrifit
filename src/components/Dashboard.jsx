@@ -123,10 +123,6 @@ export default function Dashboard({
 
       {/* Navegação Inferior Fixa */}
       <nav className="glass-card" style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
         height: 'calc(76px + env(safe-area-inset-bottom, 0px))',
         borderTop: '1px solid var(--border)',
         borderRadius: '24px 24px 0 0',
@@ -134,7 +130,9 @@ export default function Dashboard({
         justifyContent: 'space-around',
         alignItems: 'center',
         padding: '0 10px env(safe-area-inset-bottom, 0px) 10px',
-        zIndex: 10
+        zIndex: 10,
+        width: '100%',
+        flexShrink: 0
       }}>
         {[
           { id: 'home', label: 'Geral', icon: (

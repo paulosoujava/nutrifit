@@ -3,6 +3,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 import Questionnaire from './components/Questionnaire';
 import CalculatingScreen from './components/CalculatingScreen';
 import Dashboard from './components/Dashboard';
+import InstallPrompt from './components/InstallPrompt';
 import { calculateMacrosAndCalories, generateDietPlan, generateWorkoutPlan } from './utils/specialistEngine';
 
 export default function App() {
@@ -176,11 +177,14 @@ export default function App() {
   return (
     <>
       {screen === 'welcome' && (
-        <WelcomeScreen 
-          onStartNew={handleStartNew} 
-          onResume={handleResume} 
-          hasSavedPlan={hasSavedPlan}
-        />
+        <>
+          <WelcomeScreen 
+            onStartNew={handleStartNew} 
+            onResume={handleResume} 
+            hasSavedPlan={hasSavedPlan}
+          />
+          <InstallPrompt />
+        </>
       )}
 
       {screen === 'questionnaire' && (
@@ -197,28 +201,31 @@ export default function App() {
       )}
 
       {screen === 'dashboard' && profile && macros && (
-        <Dashboard
-          profile={profile}
-          macros={macros}
-          meals={meals}
-          workouts={workouts}
-          waterIntake={waterIntake}
-          setWaterIntake={setWaterIntake}
-          dietCompliance={dietCompliance}
-          setDietCompliance={setDietCompliance}
-          workoutCompliance={workoutCompliance}
-          setWorkoutCompliance={setWorkoutCompliance}
-          loggedMeals={loggedMeals}
-          setLoggedMeals={setLoggedMeals}
-          activeWorkoutDay={activeWorkoutDay}
-          setActiveWorkoutDay={setActiveWorkoutDay}
-          workoutLogs={workoutLogs}
-          setWorkoutLogs={setWorkoutLogs}
-          weightHistory={weightHistory}
-          setWeightHistory={setWeightHistory}
-          onSubstituteFood={handleSubstituteFood}
-          onReset={handleReset}
-        />
+        <>
+          <Dashboard
+            profile={profile}
+            macros={macros}
+            meals={meals}
+            workouts={workouts}
+            waterIntake={waterIntake}
+            setWaterIntake={setWaterIntake}
+            dietCompliance={dietCompliance}
+            setDietCompliance={setDietCompliance}
+            workoutCompliance={workoutCompliance}
+            setWorkoutCompliance={setWorkoutCompliance}
+            loggedMeals={loggedMeals}
+            setLoggedMeals={setLoggedMeals}
+            activeWorkoutDay={activeWorkoutDay}
+            setActiveWorkoutDay={setActiveWorkoutDay}
+            workoutLogs={workoutLogs}
+            setWorkoutLogs={setWorkoutLogs}
+            weightHistory={weightHistory}
+            setWeightHistory={setWeightHistory}
+            onSubstituteFood={handleSubstituteFood}
+            onReset={handleReset}
+          />
+          <InstallPrompt />
+        </>
       )}
     </>
   );
